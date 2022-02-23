@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;server.xml&apos; to &apos;web/src/main/java/web.dao&apos;&#x0D;&#x0A;- Original project: &apos;Servers&apos;&#x0D;&#x0A;- Destination element: &apos;web/src/main/java/web.dao&apos;&#x0D;&#x0A;- Original element: &apos;server.xml&apos;" description="Copy file" destination="=web/src\/main\/java&lt;web.dao" element1="Tomcat v9.0 Server at localhost-config/server.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1644368981999" units="0" version="1.0"/>
+</session>

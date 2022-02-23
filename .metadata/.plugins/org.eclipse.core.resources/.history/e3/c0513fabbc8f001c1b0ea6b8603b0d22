@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+   
+        var data = google.visualization.arrayToDataTable([
+            ['메뉴', '횟수'],
+            ['중식', 2],
+            ['분식', 2],
+            ['일식', 1],
+            ['한식', 1],
+            ['샌드위치', 1]
+          ]);
+
+          var options2 = {
+            title: '일주일 점심메뉴'
+          };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    
+
+        chart.draw(data, options);
+        chart.draw(data2, options2);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 500px; height: 300px;"></div><br>
+ 
+  </body>
+</html>

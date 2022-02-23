@@ -1,0 +1,30 @@
+package com.hi.mvcProject;
+
+import java.util.HashMap;
+
+public class CastingTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a = 127; //4파이트(큰)
+		byte b = (byte) a; //1바이트(작은)
+		
+		byte c = 127;
+		int d = c;
+		
+		double a2 = 100.001;
+		float b2 = (float)a2;
+		
+		float c2 = 100.001;
+		double d2 = a2;
+		
+		//자바슼크립트에서 json과 같은 역할 키: 값 저장구조
+		HashMap map = new HashMap();
+		map.put("name",  "홍길동");
+		map.put("age", 100);
+		
+		String name = map.get("name");
+		int age = map.get("age");
+	}
+
+}

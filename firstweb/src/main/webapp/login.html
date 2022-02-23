@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로그인</title>
+	<script>
+	function chk_login(){
+		var form= document.frm;
+		if(confirm("로그인하시겠습니까?")){
+			form.submit();
+		}
+	}
+</script>
+</head>
+
+<body>
+	<form name="frm" action="loginAct.jsp" method="get">
+		<table>
+			<tr>
+				<td>아이디</td>
+				<td> <input type="text" name="u_id" id="u_id" ></td>
+			</tr>
+			<tr>
+				<td>아이디</td>
+				<td> <input type="password" name="u_pw" id="u_pw"></td>
+			</tr>
+		</table>
+	</form>
+	<input type="button" onclick="chk_login()" value="로그인"/>
+</body>
+</html>

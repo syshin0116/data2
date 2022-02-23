@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<style>
+	table{
+	width: 100%;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+	}
+	th,td{
+	border-bottom: 1px solid #444444;
+	padding: 10px;
+	}
+</style>
+<script>
+
+	function register(){
+        
+        if( $('#idcheck').val()=="0"){
+            alert("중복확인을 해주세요.");
+        }else{
+            var frm= document.form;
+
+            if(frm.m_id.value==""){
+                alert("아이디을 입력해주세요.");
+                return;
+            }
+            if(frm.m_pw.value==""){
+                alert("비밀번호를 입력해주세요.");
+                return;
+            }
+            if(frm.m_name.value==""){
+                alert("이름을 입력해주세요.");
+                return;
+            }
+            if(frm.m_email.value==""){
+                alert("이메일을 입력해주세요.");
+                return;
+            }
+            if(frm.m_phone.value==""){
+                alert("전화번호를 입력해주세요.");
+                return;
+            }
+            if(confirm("회원가입 하시겠습니까?")){
+                frm.submit();
+            }
+        }
+	}
+	function cancel(){
+		location="memberList.jsp";
+	}
+	function id_check(){
+		//----jquery Ajax
+        var frm= document.form;
+        if (frm.m_id.value==""){
+            alert("아이디를 입력해주세요.");
+            return;
+        }
+		$.ajax({
+			url : '/firstweb/idcheck.jsp',
+			data:{'m_id':$('#m_id').val()},
+		    method:"get",
+            beforeSend:function(){
+                
+            },
+            success:function(data){
+                if(data=="false"){
+                    alert("아이디를 사용할 수 있습니다.");
+                    if(confirm("아이디를 사용하시겠습니까?")){
+                        $('#idcheck').val("1");
+                        $('#idcheck_text').attr("color", "green");
+                        $('#idcheck_text').html("사용 가능한 아이디입니다.");
+                        document.getElementById('m_id').disabled = true;
+                    }else{
+                    alert("중복확인을 다시 해주세요.");    
+                    }
+                }else{
+                    alert("아이디를 사용할 수 없습니다.");
+                    $('#idcheck_text').attr("color", "red");
+                    $('#idcheck_text').html("사용 불가능한 아이디입니다.");
+                    
+                }
+            },
+            error:function(){
+            }
+		});
+	}
+</script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>회원가입</h2>
+<form action="memberInsert.jsp" name="form" method="post">
+<input type="hidden" name="idcheck" id = "idcheck" value="0"/>
+	<table>
+		<tr>
+			<td>아이디: </td>
+			<td><input type="text" name="m_id" id="m_id" >
+                <input type= "button" onclick="id_check()" value="중복확인">
+                <font id="idcheck_text" size="2"></font>
+            </td>
+		</tr>
+		<tr>
+			<td>패스워드: </td>
+			<td><input type="text" name="m_pw"></td>
+		</tr>
+		<tr>
+			<td>이름: </td>
+			<td><input type="text" name="m_name"></td>
+		</tr>
+		<tr>
+			<td>이메일: </td>
+			<td><input type="text" name="m_email"></td>
+		</tr>
+		<tr>
+			<td>휴대폰번호: </td>
+			<td><input type="text" name="m_phone"></td>
+		</tr>
+	</table>
+	<input type="button" onclick="register()" value="register">
+	<input type="button" onclick="cancel()" value="cancel">
+</form>
+</body>
+</html>

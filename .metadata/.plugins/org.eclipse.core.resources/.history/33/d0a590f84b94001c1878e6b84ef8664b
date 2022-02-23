@@ -1,0 +1,60 @@
+package com.hi.mvcProject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ProductController {
+
+	@Autowired
+	ProductDAO dao; //di
+	@RequestMapping("plus")
+	public void plus(ProductVO vo, Model model, HttpSession session) {
+		//기존에 있는 장바구니 세션을 가지고 와서, 	10개
+		//전역변수는 자동 초기화
+		//지역변수는 반드시 초기화해주는 습관을 가지자!!!
+		//기본형 : 정수, 실수, 문자1, 논리
+		//기본형 초기화: 해당 타입의 값으로 초기화
+		//참조형(주소) : 객체, 클래스, 문자열, 배열, ...etc
+		//참조형 초기화: null로 초기화
+		//변수는 언제생기는가? 변수선언할떄 생김!
+		//변수의 타입 변수명; //변수선언!
+		ArrayList<ProductVO> list = null; 
+		if(session.getAttribute("basket") != null) {
+			//기존에 장바구니에 넣은 목록이 존재, 세션으로 잡힘
+			list = session.getAttribute("basket");
+		}else {
+			//한번도 장바구니에 넣은적이 없어서, 세션으로 잡혀있는것 또한 없음
+			//리스트를 만들어주어야 함.
+			list = new ArrayList<ProductVO>();
+			
+		}
+		//새로운 물건을 장바구니 세션 목록에 추가, 	11개
+		list.add(vo);
+		//세션을 새로운 목록으로 업데이트
+		//session의 값 변수의 타입은 Object으로 되엉ㅆ음
+		//어떤 타입으든 모두가 다 Object의 상속이므로
+		//모든 타입들을 Object으로 선언된 변수에 넣을 수 있다
+		//String(작은, 아래, 자식)-->Object(큰, 위, 최상위부모)
+		//ArralList-->Object
+		session.setAttribute("basket", list); 
+	}
+	
+	@RequestMapping("one")
+	public void one(ProductVO vo, Model model) {
+		ProductVO vo2 = dao.one(vo);
+		model.addAttribute("one", vo2);
+	}
+	@RequestMapping("list")
+	public void list(Model model) {
+		List<ProductVO> list = dao.all();
+		model.addAttribute("list", list);
+	}
+}
