@@ -2,38 +2,44 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>
-		<item key="casesensitive" value="false"/>
+		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="member"/>
 		<list key="findhistory">
-			<item value="green"/>
-			<item value="error"/>
-			<item value="전화번호"/>
-			<item value="패스워드"/>
-			<item value="비밀번호"/>
-			<item value="pw"/>
-			<item value="tel"/>
-			<item value="회원"/>
-			<item value="user"/>
-			<item value="url"/>
-			<item value="Url"/>
-			<item value="Tel"/>
-			<item value="Pw"/>
 			<item value="member"/>
-			<item value="context"/>
+			<item value="img"/>
+			<item value="mvVO"/>
+			<item value="MvVO"/>
+			<item value="Movie"/>
+			<item value="movie"/>
+			<item value="Bbs"/>
+			<item value="bbs"/>
+			<item value="up"/>
+			<item value="수정"/>
+			<item value="update"/>
+			<item value="bbsid"/>
+			<item value="eq"/>
+			<item value="green"/>
+			<item value="replyTa"/>
 		</list>
 		<list key="replacehistory">
+			<item value="movievVO"/>
+			<item value="mvVO"/>
+			<item value="MovieVO"/>
+			<item value="Mv"/>
+			<item value="mv"/>
+			<item value="Movie"/>
+			<item value="movie"/>
+			<item value="bbs"/>
+			<item value="Bbs"/>
 			<item value="Book"/>
 			<item value="Urls"/>
 			<item value="urls"/>
 			<item value="Img"/>
 			<item value="img"/>
 			<item value="Url"/>
-			<item value="url"/>
-			<item value="book"/>
-			<item value="td"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
