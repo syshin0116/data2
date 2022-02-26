@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +9,10 @@
 	$(function() {
 		$.ajax({
 			url : "mvList", //views/movieList.jsp가 결과
-			success: function(result) { //결과가 담겨진 table부분코드
+			success : function(result) { //결과가 담겨진 table부분코드
 				$('#d1').html(result)
 			},
-			error: function() {
+			error : function() {
 				alert('실패')
 			}
 		})
@@ -21,7 +21,7 @@
 <title>상영 영화</title>
 </head>
 <body>
-<div id="total">
+	<div id="total">
 		<div id="top">
 			<jsp:include page="top.jsp"></jsp:include>
 		</div>
@@ -29,9 +29,20 @@
 			<jsp:include page="top2.jsp"></jsp:include>
 		</div>
 		<div id="center">
-			<h3>상영 영화</h3>
+			<h3>
+				상영 영화
+				<%
+				if (session.getAttribute("mId") == "root") {
+			%>
+				(관리자모드)
+				<a href="mvInsert.jsp"><button id="insertBtn">영화 추가</button></a>
+			</h3>
+
+			<%
+				}
+			%>
 			<hr color="red">
-			<div id="d1"></div> 
+			<div id="d1"></div>
 		</div>
 	</div>
 </body>

@@ -17,9 +17,10 @@ public class MovieController {
 	MovieDAO dao;
 
 	@RequestMapping("mvList")
-	public void list(MovieVO vo, Model model) {
+	public void list(MovieVO vo, Model model, HttpSession session) {
 		List<MovieVO> list = dao.mvList();
 		model.addAttribute("mvList", list);
+		session.setAttribute("mId", "root");
 	}
 
 	@RequestMapping("mvOne")
@@ -36,11 +37,29 @@ public class MovieController {
 	
 	@RequestMapping("mvIn")
 	public void insert(MovieVO vo, Model model) {
+		
 		int result = dao.mvIn(vo);
-		String text = "게시물 작성 성공";
+		String text = "영화등록 성공";
 		if(result != 1) {
-			text = "게시물 작성 실패";
+			text = "영화등록 실패";
 		}
 		model.addAttribute("result", text);
+	}
+	
+	@RequestMapping("mvUp")
+	public void update(MovieVO vo, Model model) {
+		MovieVO vo2 = dao.mvOne(vo);
+		model.addAttribute("one", vo2);
+	}
+	@RequestMapping("mvUp2")
+	public void update2(MovieVO vo, Model model) {
+		//수정하고 싶은 것이 있으면 수정처리 요청. 
+		int result = dao.mvUp(vo);
+		String text = "영화수정 성공";
+		if(result != 1) {
+			text = "영화수정실패";
+		}
+		model.addAttribute("result", text);
+		model.addAttribute("one", vo);
 	}
 }

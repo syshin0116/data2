@@ -5,45 +5,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>영화상세정보</title>
 <script type="text/javascript" src="resources/js/jquery-3.4.1.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('#updateBtn').click(function() {
-			
-		})
 		$('#deleteBtn').click(function(){
 			if(confirm("정말로 삭제하시겠습니까?")){
-				//controller의 bbsDel요청 후,
-				//삭제가 성공하면, 
-				//bbs.jsp로 화면을 넘기면 됨
+				//controller의 mvDel요청 후, 삭제가 성공하면, mv.jsp로 화면을 넘김
 				$.ajax({
 					url: "mvDel",
 					data: {
 						mvId: ${one.mvId}	
 					},
 					success : function(result) {
-						/* 
-						int x = 100;
-						String y = "100";
-						== : 기본 데이터형만 가능 
-						*/
-						//js: 타입이 달라도 기본형과 String까지 비교 가능
-						/* 
-						x = 100
-						y = '100'
-						x == y 타입이 달라도 비교 가능 
-						x === y 타입이 동일해야 같다고 판단하는 비교 가능. */
-						
 						if(result == '1'){
+							alert("삭제되었습니다")
 							location.href = "movie.jsp"
 						}
-					}
-				})
-			}
-		
-		})
-	})
+					}//success
+				})//ajax
+			}//confirm
+		})//Btn
+	})//$function
 </script>
 </head>
 <body>
@@ -70,7 +53,7 @@
 				<button id="ticketBtn">예매</button>
 				<button id="reviewBtn">리뷰</button>
 				<% if(session.getAttribute("mId") == "root") { %>
-				<button id="updateBtn">수정</button>
+				<button id="oneBtn" onclick="location.href='mvUp?mvId=${one.mvId}'">수정</button>
 				<button id="deleteBtn">삭제</button>
 				<%} %>
 			</div>

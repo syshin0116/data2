@@ -20,8 +20,12 @@ public class MovieDAO {
 	}
 	public int mvDel(MovieVO vo) {
 			return my.delete("mv.del", vo); 
+			
 	}
 	public int mvIn(MovieVO vo) {
-		return my.insert("mv.insert", vo);
+		return my.insert("mv.in", vo);
+	}
+	public int mvUp(MovieVO vo) {
+		return my.update("mv.up", vo);
 	}
 }

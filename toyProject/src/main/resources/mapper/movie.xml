@@ -4,16 +4,25 @@
 
 <mapper namespace="mv">
 	<select id="one" parameterType="movieVO" resultType="movieVO">
-		select * from movie where mvId = #{mvId}
+		select *
+		from movie where mvId = #{mvId}
 	</select>
 
 	<select id="list" resultType="movieVO">
 		select * from movie
 	</select>
 	<delete id="del" parameterType="movieVO">
-		delete from movie where mvId = #{mvId}
-	</delete> 
+		delete from movie where mvId =
+		#{mvId}
+	</delete>
 	<insert id="in" parameterType="movieVO">
-		insert into movie values (#mvId, #mvTitle, #mvTime, #mvSection, #mvRating, #mvSummary, #mvImg)
+		insert into movie values (#{mvId},
+		#{mvTitle}, #{mvTime}, #{mvSection}, #{mvRating}, #{mvSummary},
+		#{mvImg})
 	</insert>
+	<update id="up" parameterType="movieVO">
+		update movie 
+		set mvTitle=#{mvTitle}, mvTime=#{mvTime}, mvSection=#{mvSection}, mvRating=#{mvRating}, mvSummary=#{mvSummary}, mvImg=#{mvImg} 
+		where mvID=#{mvId}
+	</update>
 </mapper>
