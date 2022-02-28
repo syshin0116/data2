@@ -6,7 +6,6 @@
 <nav>
 	
 	<a href="movie.jsp">상영 영화</a>
-	<a href='tInsert.jsp'>예매하기</a> 
 	<a href='ticket.jsp'>예매확인</a>
 	<a href="review2.jsp">리뷰</a>
 	
