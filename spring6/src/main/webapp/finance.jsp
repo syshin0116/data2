@@ -14,6 +14,16 @@
 code : <input name="code"><br>
 <button>code로 네이버에서 크롤링하여 db에 저장</button>
 </form>
+<hr color=yellow>
+<a href="stock.do?code=018260">
+<button>삼성SDS</button>
+</a>
+<a href="stock.do?code=034220">
+<button>LG Display</button>
+</a>
+<a href="stock.do?code=005380">
+<button>현대자동차</button>
+</a>
 
 <hr>
 <form action="create.do">

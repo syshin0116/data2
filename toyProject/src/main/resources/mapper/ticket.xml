@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ticket">
+
+	<insert id="insert" parameterType="ticketVO">
+		insert into ticket(mId, mvId, tTime, tSeat) values(#{mId}, #{mvId}, #{tTime}, #{tSeat})
+	</insert>
+	
+	<update id="update" parameterType="ticketVO">
+		update ticket set tTime=#{tTime} where tId=#{tId}
+	</update>
+
+	<delete id="delete" parameterType="ticketVO">
+		delete from ticket where tId=#{tId}
+	</delete>
+	
+	<select id="one" parameterType="ticketVO" resultType="ticketVO">
+		select * from ticket where tId = #{tId}
+	</select>
+
+	<select id="list" parameterType="ticketVO" resultType="ticketVO">
+		select * from ticket where mId=#{mId}
+	</select>
+	
+	<select id="seat" parameterType="ticketVO" resultType="ticketVO">
+		select tSeat from ticket where mvId=#{mvId} and tTime=#{tTime} order by tSeat asc
+	</select>
+
+</mapper>

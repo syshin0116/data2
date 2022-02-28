@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+	<select id="login" parameterType="memberVO"
+		resultType="memberVO">
+		select * from member where mId = #{mId} and mPw = #{mPw}
+	</select>
+
+	<select id="one" parameterType="memberVO" resultType="memberVO">
+		select *
+		from member where mId = #{mId}
+	</select>
+
+	<insert id="create" parameterType="memberVO">
+		insert into member values
+		(#{mId}, #{mPw}, #{mEmail}, #{mPhone})
+	</insert>
+
+	<update id="up" parameterType="memberVO">
+		update member set mPw = #{mPw}, mEmail = #{mEmail}, mPhone = #{mPhone} Where
+		mId = #{mId}
+	</update>
+
+	<delete id="del" parameterType="memberVO">
+		delete from member where mId = #{mId}
+	</delete>
+
+</mapper>

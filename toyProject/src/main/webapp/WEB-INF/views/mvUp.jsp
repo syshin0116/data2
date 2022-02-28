@@ -19,11 +19,11 @@
 </head>
 <body>
 	<div id="total">
-		<div id="top">
+		<div id="menu">
 			<jsp:include page="../../top.jsp"></jsp:include>
 		</div>
-		<div id="top2">
-			<jsp:include page="../../top2.jsp"></jsp:include>
+		<div id="memberTop">
+			<jsp:include page="../../mTop.jsp"></jsp:include>
 		</div>
 		<div id="center">
 			<span style="font-size: 25px;">영화 상세 페이지 <%

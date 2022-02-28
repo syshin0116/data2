@@ -31,15 +31,15 @@
 </head>
 <body>
 	<div id="total">
-		<div id="top">
+		<div id="menu">
 			<jsp:include page="../../top.jsp"></jsp:include>
 		</div>
-		<div id="top2">
-			<jsp:include page="../../top2.jsp"></jsp:include>
+		<div id="memberTop">
+			<jsp:include page="../../mTop.jsp"></jsp:include>
 		</div>
 		<div id="center">
 			<span style="font-size: 25px;">영화 상세 페이지
-			<% if(session.getAttribute("mId") == "root") { %> (관리자모드)<%} %></span>
+			<% if(session.getAttribute("mId").equals("root")) { %> (관리자모드)<%} %></span>
 			<hr color=red>
 			<div id="mvImg" style="float: left; width: 20%; text-align: center;">
 				<img src="${one.mvImg}" style="width: 90%">
@@ -49,10 +49,10 @@
 				<p>상영시간: ${one.mvTime}</p>
 				<p>상영관: ${one.mvSection}</p>
 				<p>평점: ${one.mvRating}</p>
-				<p>줄거리: ${one.mvSummary}</p>
-				<button id="ticketBtn">예매</button>
-				<button id="reviewBtn">리뷰</button>
-				<% if(session.getAttribute("mId") == "root") { %>
+				<p>정보: ${one.mvSummary}</p>
+				<button id="ticketBtn" onclick="location.href='tInsert.jsp?mvId=${one.mvId}'">예매</button>
+				<button id="reviewBtn" onclick="location.href='review.jsp?mvId=${one.mvId}'">리뷰</button>
+				<% if(session.getAttribute("mId").equals("root")) { %>
 				<button id="oneBtn" onclick="location.href='mvUp?mvId=${one.mvId}'">수정</button>
 				<button id="deleteBtn">삭제</button>
 				<%} %>

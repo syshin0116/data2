@@ -5,16 +5,16 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.cgv.mvc.MovieVO" alias="movieVO"></typeAlias>
-<!-- 		<typeAlias type="com.cgv.mvc.MemberVO" alias="memberVO"></typeAlias>
+		<typeAlias type="com.cgv.mvc.MemberVO" alias="memberVO"></typeAlias>
 		<typeAlias type="com.cgv.mvc.TicketVO" alias="ticketVO"></typeAlias>
-		<typeAlias type="com.cgv.mvc.ReviewVO" alias="reviewVO"></typeAlias> -->
+		<typeAlias type="com.cgv.mvc.ReviewVO" alias="reviewVO"></typeAlias>
 	</typeAliases>
-	
+
 	<mappers>
 		<mapper resource="mapper/movie.xml" />
-<!-- 		<mapper resource="mapper/member.xml" />
+		<mapper resource="mapper/member.xml" />
 		<mapper resource="mapper/ticket.xml" />
-		<mapper resource="mapper/review.xml" /> -->
+		<mapper resource="mapper/review.xml" />
 	</mappers>
 </configuration>
 

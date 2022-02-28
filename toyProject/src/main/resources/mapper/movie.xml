@@ -3,6 +3,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mv">
+
+	<select id="selectRating" parameterType="movieVO" resultType="double">
+		select avg(rRating) from movie.review where mvId=#{mvId}
+	</select>
+	
+	<update id="updateRating" parameterType="movieVO">
+		update movie set mvRating=${mvRating} where mvId=#{mvId}
+	</update>
+	
+	
+	
 	<select id="one" parameterType="movieVO" resultType="movieVO">
 		select *
 		from movie where mvId = #{mvId}
@@ -21,8 +32,9 @@
 		#{mvImg})
 	</insert>
 	<update id="up" parameterType="movieVO">
-		update movie 
-		set mvTitle=#{mvTitle}, mvTime=#{mvTime}, mvSection=#{mvSection}, mvRating=#{mvRating}, mvSummary=#{mvSummary}, mvImg=#{mvImg} 
+		update movie
+		set mvTitle=#{mvTitle}, mvTime=#{mvTime}, mvSection=#{mvSection},
+		mvRating=#{mvRating}, mvSummary=#{mvSummary}, mvImg=#{mvImg}
 		where mvID=#{mvId}
 	</update>
 </mapper>

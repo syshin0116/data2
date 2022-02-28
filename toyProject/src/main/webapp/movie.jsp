@@ -22,23 +22,24 @@
 </head>
 <body>
 	<div id="total">
-		<div id="top">
+		<div id="menu">
 			<jsp:include page="top.jsp"></jsp:include>
 		</div>
-		<div id="top2">
-			<jsp:include page="top2.jsp"></jsp:include>
+		<div id="memberTop">
+			<jsp:include page="mTop.jsp"></jsp:include>
 		</div>
 		<div id="center">
 			<h3>
-				상영 영화
-				<%
-				if (session.getAttribute("mId") == "root") {
+				상영 영화 ${mId} 
+				<%if(session.getAttribute("mId")!=null){
+				if (session.getAttribute("mId").equals("root")) {
 			%>
-				(관리자모드)
-				<a href="mvInsert.jsp"><button id="insertBtn">영화 추가</button></a>
+				(관리자모드) <a href="mvInsert.jsp"><button id="insertBtn">영화
+						추가</button></a>
 			</h3>
 
 			<%
+				}
 				}
 			%>
 			<hr color="red">

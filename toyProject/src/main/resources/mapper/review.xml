@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review">
+
+	<select id="createdId" resultType="reviewVO">
+	 	select * from review order by rid desc limit 1
+	</select>
+	<insert id="in" parameterType="reviewVO">
+		insert into review values (null, #{mId}, #{mvId}, #{rComment}, #{rRating}, #{mvImg})
+	</insert>
+	<update id="up" parameterType="reviewVO">
+		update review set rRating = #{rRating},
+		rComment = #{rComment} where rId = #{rId}
+	</update>
+	<delete id="del" parameterType="reviewVO">
+		delete from review where rId = #{rId}
+	</delete>
+	<select id="one" parameterType="reviewVO" resultType="reviewVO">
+		select * from
+		review where rId = #{rId}
+	</select>
+	<select id="all" resultType="reviewVO">
+		select * from review
+	</select>
+	<select id="list"  parameterType="reviewVO"  resultType="reviewVO">
+		select * from review where mvId = #{mvId}
+	</select>
+</mapper>
