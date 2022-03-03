@@ -52,7 +52,6 @@ public class MovieController {
 	public void one(MovieVO vo, Model model, HttpSession session) {
 		MovieVO vo2 = mvDao.mvOne(vo);
 		model.addAttribute("one", vo2);
-		session.setAttribute("mId", "root");
 		System.out.println("vo2:"+vo2);
 	}
 

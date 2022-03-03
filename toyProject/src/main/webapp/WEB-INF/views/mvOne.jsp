@@ -39,7 +39,13 @@
 		</div>
 		<div id="center">
 			<span style="font-size: 25px;">영화 상세 페이지
-			<% if(session.getAttribute("mId").equals("root")) { %> (관리자모드)<%} %></span>
+			<%
+					if (session.getAttribute("mId") != null) {
+					if (session.getAttribute("mId").equals("root")) {
+				%>
+			(관리자모드)<%}} %></span>
+
+
 			<hr color=red>
 			<div id="mvImg" style="float: left; width: 20%; text-align: center;">
 				<img src="${one.mvImg}" style="width: 90%">
@@ -52,10 +58,13 @@
 				<p>정보: ${one.mvSummary}</p>
 				<button id="ticketBtn" onclick="location.href='tInsert.jsp?mvId=${one.mvId}'">예매</button>
 				<button id="reviewBtn" onclick="location.href='review.jsp?mvId=${one.mvId}'">리뷰</button>
-				<% if(session.getAttribute("mId").equals("root")) { %>
+				<%
+					if (session.getAttribute("mId") != null) {
+					if (session.getAttribute("mId").equals("root")) {
+				%>
 				<button id="oneBtn" onclick="location.href='mvUp?mvId=${one.mvId}'">수정</button>
 				<button id="deleteBtn">삭제</button>
-				<%} %>
+				<%}} %>
 			</div>
 		</div>
 	</div>

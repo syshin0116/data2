@@ -36,8 +36,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("mDelete")
-	public void del(MemberVO vo) {
+	public void del(MemberVO vo, HttpSession session) {
 		int result = dao.del(vo);
+		session.invalidate();
 	}
 	@RequestMapping("login")
 	public void login() {

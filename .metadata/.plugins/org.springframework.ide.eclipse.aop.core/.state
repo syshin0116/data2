@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="toyProject2"/>
+<aop-project name="spring6"/>
 <aop-project name="toyProject"/>
 <aop-project name="spring01"/>
 <aop-project name="spring02"/>

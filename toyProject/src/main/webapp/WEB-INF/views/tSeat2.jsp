@@ -28,7 +28,7 @@ table {
 			</c:if>
 			<c:if test="${one eq 0}">
 				<td><a
-					href='tInsert?mId=${mId}&mvId=${mvId}&tTime=${time}&tSeat=${status.count}'><button>${status.count}</button></a></td>
+					href='tUpdate?tId=${tId}&mId=${mId}&mvId=${mvId}&tTime=${time}&tSeat=${status.count}'><button>${status.count}</button></a></td>
 			</c:if>
 			<c:if test="${status.count mod 4 eq 0}">
 				</tr><tr>

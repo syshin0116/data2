@@ -13,7 +13,7 @@
 	<div id="center">
 	<h3>회원가입이 완료되었습니다.</h3>
 	<hr>
-	<a href="mTop.jsp">
+	<a href="movie.jsp">
 		<button>로그인 페이지로.</button>
 	</a>
 	</div>

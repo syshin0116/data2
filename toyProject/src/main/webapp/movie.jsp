@@ -30,17 +30,18 @@
 		</div>
 		<div id="center">
 			<h3>
-				상영 영화 ${mId} 
-				<%if(session.getAttribute("mId")!=null){
-				if (session.getAttribute("mId").equals("root")) {
-			%>
+				상영 영화 ${mId}
+				<%
+					if (session.getAttribute("mId") != null) {
+					if (session.getAttribute("mId").equals("root")) {
+				%>
 				(관리자모드) <a href="mvInsert.jsp"><button id="insertBtn">영화
 						추가</button></a>
 			</h3>
 
 			<%
 				}
-				}
+			}
 			%>
 			<hr color="red">
 			<div id="d1"></div>

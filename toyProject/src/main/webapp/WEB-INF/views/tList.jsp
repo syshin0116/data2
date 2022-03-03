@@ -16,7 +16,7 @@
       <td class="right"><a href="mvOne?mvId=${list2[status.index].mvId}">${list2[status.index].mvTitle}</a></td>
       <td class="right">${one.tTime}:00</td>
       <td class="right">${one.tSeat}</td>       
-      <td class="right"><a href="tUpdate.jsp?tId=${one.tId}"><button>변경</button></a></td>
+      <td class="right"><a href="tUpdate.jsp?tId=${one.tId}&mvId=${list2[status.index].mvId}"><button>변경</button></a></td>
       <td class="right"><button onclick="delTicket(${one.tId})">취소</button></td>
    </tr>
    </c:forEach>

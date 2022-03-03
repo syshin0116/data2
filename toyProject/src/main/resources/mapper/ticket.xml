@@ -9,7 +9,7 @@
 	</insert>
 	
 	<update id="update" parameterType="ticketVO">
-		update ticket set tTime=#{tTime} where tId=#{tId}
+		update ticket set tTime=#{tTime}, tSeat=#{tSeat} where tId=#{tId}
 	</update>
 
 	<delete id="delete" parameterType="ticketVO">

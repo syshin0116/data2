@@ -3,10 +3,13 @@ package com.cgv.mvc;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.HandlerMapping;
 
 @Controller
 public class TicketController {
@@ -26,8 +29,8 @@ public class TicketController {
 	
 	@RequestMapping("tUpdate")
 	public void update(TicketVO vo, Model model) {
-		TicketVO vo2=dao.one(vo);
-		model.addAttribute("one", vo2);
+		System.out.println(vo);
+		dao.update(vo);
 	}
 	
 	
@@ -108,8 +111,33 @@ public class TicketController {
 		model.addAttribute("seats", seats);
 		model.addAttribute("time", vo.gettTime());
 		model.addAttribute("mvId", vo.getMvId());
+	
+	}
+	
+	@RequestMapping("tSeat2")
+	public void seat2(TicketVO vo, Model model) {
+		System.out.println(vo);
 		
+		List<TicketVO> list= dao.usedSeat(vo);
 		
+		int[] seats= new int[12];
+		//System.out.println(seats.length);
+		
+		for(int i=0;i<12;i++)
+		{
+			seats[i]=0;
+		}
+		
+		for(int i=0;i<list.size();i++)
+		{
+			seats[list.get(i).gettSeat()-1]=list.get(i).gettSeat();
+		}
+		
+		model.addAttribute("seats", seats);
+		model.addAttribute("time", vo.gettTime());
+		model.addAttribute("mvId", vo.getMvId());
+		model.addAttribute("tId", vo.gettId());
+	
 	}
 	
 }
